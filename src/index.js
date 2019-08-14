@@ -1,12 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const Buttons = () => {
+    return (
+        <div>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>0</button>
+            <button>+</button>
+            <button>-</button>
+            <button>=</button>
+            <button>*</button>
+            <button>/</button>
+            <button>&radic;</button>
+        </div>
+    );
+};
+
+
+const Screen = () => {
+    return (
+        <p>d</p>
+    );
+};
+
+
+const App = () => {
+ return (
+     <div>
+        <Screen/>
+        <Buttons/>
+     </div>
+ );
+};
+
+ReactDOM.render(<App/>, document.getElementById('root'));
