@@ -2,9 +2,9 @@ import React from 'react';
 import './screen.css'
 
 
-const Screen = () => {
+const Screen = ({ result }) => {
     return (
-        <p className = 'screen'>d</p>
+        <p className = 'screen'>{ result }</p>
     );
 };
 

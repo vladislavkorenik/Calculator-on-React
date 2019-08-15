@@ -1,9 +1,8 @@
 .screen {
-    font-size: 20px;
-    text-align: center;
+    font-size: 30px;
+    text-align: right;
     color: white;
-    background: #000;
-    border-radius: 2px;
-    padding: 10px 0px;
+    border: 2px solid white;
+    padding: 30px 10px;
     margin-bottom: 5px;
 }

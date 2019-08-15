@@ -2,27 +2,27 @@ import React from 'react';
 import './buttons.css'
 
 
-const Buttons = () => {
+const Buttons = ({ add, clear }) => {
     return (
         <div className = 'buttons'>
             <button>С</button>
-            <button>СE</button>
+            <button onClick={ () => clear() }>СE</button>
             <button>%</button>
             <button>*</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
+            <button className="number" onClick={ () => add('1')}>1</button>
+            <button className="number" onClick={ () => add('2')}>2</button>
+            <button className="number" onClick={ () => add('3')}>3</button>
             <button>/</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
+            <button className="number" onClick={ () => add('4')}>4</button>
+            <button className="number" onClick={ () => add('5')}>5</button>
+            <button className="number" onClick={ () => add('6')}>6</button>
             <button>-</button>
-            <button>7</button>
-            <button>8</button>     
-            <button>9</button>
+            <button className="number" onClick={ () => add('7')}>7</button>
+            <button className="number" onClick={ () => add('8')}>8</button>     
+            <button className="number" onClick={ () => add('9')}>9</button>
             <button>+</button>
             <button>&radic;</button>
-            <button>0</button>
+            <button className="number" onClick={ () => add('0')}>0</button>
             <button>.</button>
             <button>=</button>
         </div>
