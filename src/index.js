@@ -16,7 +16,13 @@ class App extends Component {
         this.setState({
             result: '0'
         });
-    };
+    }
+
+    backspace = () => {
+        this.setState({
+            result: this.state.result.length == 1 ? '0' : this.state.result.slice(0, -1)
+        });
+    }
 
     writeNum = (item) => {
         this.setState({
@@ -27,7 +33,7 @@ class App extends Component {
         return (
             <div className = "app">
                 <Screen result = { this.state.result }/>
-                <Buttons add = { this.writeNum } clear = { this.clear }/>
+                <Buttons add = { this.writeNum } clear = { this.clear } backspace = { this.backspace }/>
             </div>
         );
     }  

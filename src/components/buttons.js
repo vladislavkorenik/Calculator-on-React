@@ -2,10 +2,10 @@ import React from 'react';
 import './buttons.css'
 
 
-const Buttons = ({ add, clear }) => {
+const Buttons = ({ add, clear, backspace }) => {
     return (
         <div className = 'buttons'>
-            <button>С</button>
+            <button onClick={ () => backspace() }>С</button>
             <button onClick={ () => clear() }>СE</button>
             <button>%</button>
             <button>*</button>
