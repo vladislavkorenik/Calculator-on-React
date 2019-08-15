@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+#root  {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+.app {
+    max-width: 650px;
+    background: #8080c0;
+    padding: 10px 20px 20px 20px;
+    border-radius: 5px;
+    box-shadow: 1px 3px 1px lightgray;
+}
