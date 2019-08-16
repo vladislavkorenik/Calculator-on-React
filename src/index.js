@@ -28,9 +28,16 @@ class App extends Component {
     }
 
     backspace = () => {
-        this.setState({
-            result: this.state.result.length === 1 ? '0' : this.state.result.slice(0, -1)
-        });
+        if(this.state.result === 'NaN' || this.state.result === 'Infinity') {
+            this.setState({
+                result: '0'
+            });
+        }
+        else {
+            this.setState({
+                result: this.state.result.length === 1 ? '0' : this.state.result.slice(0, -1)
+            });
+        }
     }
 
     writeNum = (item) => {
