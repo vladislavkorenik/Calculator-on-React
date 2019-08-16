@@ -56,7 +56,7 @@ class App extends Component {
 
     radical = () => {
         this.setState({
-            result: Math.sqrt(this.state.result) 
+            result: `${Math.sqrt(this.state.result)}` 
          });
     }
 
