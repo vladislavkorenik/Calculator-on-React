@@ -1,10 +1,9 @@
 import React from 'react';
 
 
-const Button = ({props}) => {
-    const { label, btnStyle, action, eventBtn } = props;
+const Button = ( { props:{ value, func, symbol, classes } } ) => {
     return (
-        <button type='button' className={btnStyle} onClick={() => eventBtn(label, action)}>{ label }</button>   
+        <button className={ classes } onClick={ () => func(symbol) }>{ value }</button>   
     );
 };
 

@@ -1,32 +1,122 @@
 import React from 'react';
 
-import Button from '../button/button'
+import Button from '../button'
 import './buttons.css'
 
 
 const Buttons = ({ add, clear, backspace, equal, radical }) => {
+    const config = [
+        {
+            value: 'C',
+            func: clear
+        },
+        {
+            value: 'CE',
+            func: backspace
+        },
+        {
+            value: 'mod',
+            symbol: '%',
+            func: add
+        },
+        {
+            value: '*',
+            symbol: '*',
+            func: add
+        },
+        {
+            value: '1',
+            symbol: '1',
+            classes: 'number',
+            func: add
+        },
+        {
+            value: '2',
+            symbol: '2',
+            classes: 'number',
+            func: add
+        },
+        {
+            value: '3',
+            symbol: '3',
+            classes: 'number',
+            func: add
+        },
+        {
+            value: '/',
+            symbol: '/',
+            func: add
+        },
+        {
+            value: '4',
+            symbol: '4',
+            classes: 'number',
+            func: add
+        },
+        {
+            value: '5',
+            symbol: '5',
+            classes: 'number',
+            func: add
+        },
+        {
+            value: '6',
+            symbol: '6',
+            classes: 'number',
+            func: add
+        },
+        {
+            value: '-',
+            symbol: '-',
+            func: add
+        },
+        {
+            value: '7',
+            symbol: '7',
+            classes: 'number',
+            func: add
+        },
+        {
+            value: '8',
+            symbol: '8',
+            classes: 'number',
+            func: add
+        },
+        {
+            value: '9',
+            symbol: '9',
+            classes: 'number',
+            func: add
+        },
+        {
+            value: '+',
+            symbol: '+',
+            func: add
+        },
+        {
+            value: 'sqrt',
+            func: radical
+        },
+        {
+            value: '0',
+            symbol: '0',
+            classes: 'number',
+            func: add
+        },
+        {
+            value: '.',
+            symbol: '.',
+            func: add
+        },
+        {
+            value: '=',
+            func: equal
+        },
+    ];
+    let bottns =  config.map( item => <Button props = { item } />);
     return (
-        <div className = 'buttons'>
-            <button onClick={ () => clear() }>С</button>
-            <button onClick={ () => backspace() }>СE</button>
-            <button onClick={ () => add('%') }>%</button>
-            <button onClick={ () => add('*') }>*</button>
-            <button className="number" onClick={ () => add('1')}>1</button>
-            <button className="number" onClick={ () => add('2')}>2</button>
-            <button className="number" onClick={ () => add('3')}>3</button>
-            <button onClick={ () => add('/') }>/</button>
-            <button className="number" onClick={ () => add('4')}>4</button>
-            <button className="number" onClick={ () => add('5')}>5</button>
-            <button className="number" onClick={ () => add('6')}>6</button>
-            <button onClick={ () => add('-') }>-</button>
-            <button className="number" onClick={ () => add('7')}>7</button>
-            <button className="number" onClick={ () => add('8')}>8</button>     
-            <button className="number" onClick={ () => add('9')}>9</button>
-            <button onClick={ () => add('+') }>+</button>
-            <button onClick={ () => radical() }>&radic;</button>
-            <button className="number" onClick={ () => add('0')}>0</button>
-            <button onClick={ () => add('.') }>.</button>
-            <button onClick={ () => equal() }>=</button>
+        <div className='buttons'>
+            {bottns}
         </div>
     );
 };

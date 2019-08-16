@@ -5,7 +5,7 @@ import Buttons from '../buttons'
 import Screen from '../screen'
 
 
-class App extends Component {
+export default class App extends Component {
     operations = {
         '+': 1, 
         '-': 1, 
@@ -73,6 +73,3 @@ class App extends Component {
         );
     }  
 }
-
-
-export default App;
