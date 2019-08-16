@@ -8,6 +8,15 @@ import Screen from './components/screen'
 
 
 class App extends Component {
+    operations = {
+        '+': 1, 
+        '-': 1, 
+        '/': 1,
+        '*': 1,
+        '%': 1,
+        '.': 1
+    };
+
     state = {
         result: '0'
     }
@@ -19,20 +28,29 @@ class App extends Component {
     }
 
     backspace = () => {
+        console.log(this.state.result);
         this.setState({
-            result: this.state.result.length == 1 ? '0' : this.state.result.slice(0, -1)
+            result: this.state.result.length === 1 ? '0' : this.state.result.slice(0, -1)
         });
     }
 
     writeNum = (item) => {
-        this.setState({
-            result: this.state.result == '0' ? item : this.state.result + item
-        });
+        console.log(this.state.result);
+        if (item in this.operations) {
+            this.setState({
+                result: this.state.result.indexOf(item) !== -1 ? this.state.result : this.state.result + item
+            });
+        }
+        else {
+            this.setState({
+                result: this.state.result === '0' ? item : this.state.result + item
+            });
+        }
     }
 
     calculation = () => {
         this.setState({
-           result: eval(this.state.result) 
+           result: `${eval(this.state.result)}` 
         });
     }
 
