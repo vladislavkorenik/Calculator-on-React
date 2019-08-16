@@ -16,6 +16,10 @@ class App extends Component {
         '%': 1,
         '.': 1
     };
+    
+    havesign = () => {
+        return this.state.result.charAt(this.state.result.length - 1) in this.operations ? true : false
+    }
 
     state = {
         result: '0'
@@ -28,16 +32,9 @@ class App extends Component {
     }
 
     backspace = () => {
-        if(this.state.result === 'NaN' || this.state.result === 'Infinity') {
-            this.setState({
-                result: '0'
-            });
-        }
-        else {
-            this.setState({
-                result: this.state.result.length === 1 ? '0' : this.state.result.slice(0, -1)
-            });
-        }
+        this.setState({
+            result: this.state.result.length === 1 ? '0' : this.state.result.slice(0, -1)
+        });
     }
 
     writeNum = (item) => {
@@ -48,20 +45,24 @@ class App extends Component {
         }
         else {
             this.setState({
-                result: this.state.result === '0' ? item : this.state.result + item
+                result: this.state.result === '0' ? item : 
+                this.state.result === 'На ноль делить нельзя' ? item : 
+                this.state.result === 'Результат не определен' ? item : this.state.result + item 
             });
         }
     }
 
     calculation = () => {
         this.setState({
-           result: this.state.result.charAt(this.state.result.length - 1) in this.operations ? this.state.result : `${eval(this.state.result)}` 
+           result: this.havesign() ? this.state.result : 
+           `${eval(this.state.result)}`  === 'Infinity' ? 'На ноль делить нельзя' : 
+           `${eval(this.state.result)}` === 'NaN' ? 'Результат не определен' : `${eval(this.state.result)}`
         });
     }
 
     radical = () => {
         this.setState({
-            result: `${Math.sqrt(this.state.result)}` 
+            result: this.havesign() ? this.state.result : `${Math.sqrt(eval(this.state.result))}`
          });
     }
 
