@@ -28,14 +28,12 @@ class App extends Component {
     }
 
     backspace = () => {
-        console.log(this.state.result);
         this.setState({
             result: this.state.result.length === 1 ? '0' : this.state.result.slice(0, -1)
         });
     }
 
     writeNum = (item) => {
-        console.log(this.state.result);
         if (item in this.operations) {
             this.setState({
                 result: this.state.result.indexOf(item) !== -1 ? this.state.result : this.state.result + item
@@ -50,7 +48,7 @@ class App extends Component {
 
     calculation = () => {
         this.setState({
-           result: `${eval(this.state.result)}` 
+           result: this.state.result.charAt(this.state.result.length - 1) in this.operations ? this.state.result : `${eval(this.state.result)}` 
         });
     }
 
