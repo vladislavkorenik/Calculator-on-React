@@ -29,11 +29,24 @@ class App extends Component {
             result: this.state.result == '0' ? item : this.state.result + item
         });
     }
+
+    calculation = () => {
+        this.setState({
+           result: eval(this.state.result) 
+        });
+    }
+
+    radical = () => {
+        this.setState({
+            result: Math.sqrt(this.state.result) 
+         });
+    }
+
     render () {
         return (
             <div className = "app">
                 <Screen result = { this.state.result }/>
-                <Buttons add = { this.writeNum } clear = { this.clear } backspace = { this.backspace }/>
+                <Buttons add = { this.writeNum } clear = { this.clear } backspace = { this.backspace } equal = { this.calculation } radical = { this.radical }/>
             </div>
         );
     }  
