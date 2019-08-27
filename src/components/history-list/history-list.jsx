@@ -4,9 +4,13 @@ import './history-list.css'
 import HistoryListItem from '../history-list-item'
 
 
-const HistoryList = () => {
+const HistoryList = ({ visibility }) => {
+    let className = 'history-list visibility'
+    if(visibility) {
+        className = 'history-list'
+    }
     return (
-        <ul className = 'history-list'>
+        <ul className = {className}>
             <HistoryListItem/>
         </ul>
     );

@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import './history-button.css'
 
 
-const History = () => {
+const History = ({ showHistory }) => {
         return (
             <div className = 'button-container'>
-                <button className = 'history-button'>History</button> 
+                <button className = 'history-button' onClick = { () => showHistory() }>History</button> 
             </div>
         )
 }
