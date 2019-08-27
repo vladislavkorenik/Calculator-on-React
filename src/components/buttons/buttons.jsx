@@ -113,7 +113,7 @@ const Buttons = ({ add, clear, backspace, equal, radical }) => {
             func: equal
         },
     ];
-    let bottns =  config.map( item => <Button props = { item } />);
+    let bottns =  config.map( item => <Button key={ item.value } props = { item } />);
     return (
         <div className='buttons'>
             {bottns}

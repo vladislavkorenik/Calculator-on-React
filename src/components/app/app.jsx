@@ -3,6 +3,7 @@ import './app.css'
 
 import Buttons from '../buttons'
 import Screen from '../screen'
+import History from '../history'
 
 
 export default class App extends Component {
@@ -67,6 +68,7 @@ export default class App extends Component {
     render () {
         return (
             <div className = "app">
+                <History/>
                 <Screen result = { this.state.result }/>
                 <Buttons add = { this.writeNum } clear = { this.clear } backspace = { this.backspace } equal = { this.calculation } radical = { this.radical }/>
             </div>

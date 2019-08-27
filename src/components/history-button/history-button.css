@@ -1,0 +1,11 @@
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+.history-button {
+    color: white;
+    margin: 10px 5px;
+    font-size: 17px;
+    background: none;
+    border: none;
+}
