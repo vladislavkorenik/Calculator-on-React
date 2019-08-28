@@ -22,7 +22,7 @@ export default class History extends Component {
         return (
             <div>
                 <HistoryButton showHistory = { this.showHistory }/>
-                <HistoryList visibility = { this.state.visibility }/>
+                <HistoryList visibility = { this.state.visibility } arrList = { this.props.arrList }/>
             </div>
         )
     };   

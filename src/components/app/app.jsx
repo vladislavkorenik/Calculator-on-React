@@ -15,6 +15,8 @@ export default class App extends Component {
         '%': 1,
         '.': 1
     };
+
+    arrList = [];
     
     havesign = () => {
         return this.state.result.charAt(this.state.result.length - 1) in this.operations ? true : false
@@ -51,24 +53,31 @@ export default class App extends Component {
         }
     }
 
+    writeHistory = () => {
+        this.arrList.push({ value: this.state.result + ' = ' + `${eval(this.state.result)}` })
+        console.log(this.arrList)
+    }
+
     calculation = () => {
         this.setState({
            result: this.havesign() ? this.state.result : 
            `${eval(this.state.result)}`  === 'Infinity' ? 'На ноль делить нельзя' : 
            `${eval(this.state.result)}` === 'NaN' ? 'Результат не определен' : `${eval(this.state.result)}`
         });
+        this.writeHistory();
     }
 
     radical = () => {
         this.setState({
             result: this.havesign() ? this.state.result : `${Math.sqrt(eval(this.state.result))}`
          });
+         this.writeHistory();
     }
 
     render () {
         return (
             <div className = "app">
-                <History/>
+                <History arrList = { this.arrList }/>
                 <Screen result = { this.state.result }/>
                 <Buttons add = { this.writeNum } clear = { this.clear } backspace = { this.backspace } equal = { this.calculation } radical = { this.radical }/>
             </div>

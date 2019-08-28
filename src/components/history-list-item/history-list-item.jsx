@@ -1,9 +1,9 @@
 import React from 'react';
 import './history-list-item.css'
 
-const HistoryListItem = () => {
+const HistoryListItem = ({ props:{ value } }) => {
     return (
-        <li className='history-list-item'>d</li>
+        <li className='history-list-item'>{ value }</li>
     );
 }
 
