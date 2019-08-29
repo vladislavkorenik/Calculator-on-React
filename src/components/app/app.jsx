@@ -53,9 +53,9 @@ export default class App extends Component {
         }
     }
 
-    writeHistory = () => {
+    writeHistory = (text) => {
         if(!this.havesign()) {
-            this.arrList.push({ value: this.state.result + ' = ' + `${eval(this.state.result)}` })
+            this.arrList.push({ value: text })
             let arrListCopy = JSON.stringify(this.arrList);
             localStorage.setItem('arrList', arrListCopy);
         }    
@@ -67,14 +67,14 @@ export default class App extends Component {
            `${eval(this.state.result)}`  === 'Infinity' ? 'На ноль делить нельзя' : 
            `${eval(this.state.result)}` === 'NaN' ? 'Результат не определен' : `${eval(this.state.result)}`
         });
-        this.writeHistory();
+        this.writeHistory(this.state.result + ' = ' + `${eval(this.state.result)}`);
     }
 
     radical = () => {
         this.setState({
             result: this.havesign() ? this.state.result : `${Math.sqrt(eval(this.state.result))}`
          });
-         this.writeHistory();
+         this.writeHistory('sqrt(' + this.state.result + ')' + ' = ' + `${Math.sqrt(eval(this.state.result))}`);
     }
 
     render() {
