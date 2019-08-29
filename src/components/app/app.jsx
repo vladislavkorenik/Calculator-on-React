@@ -41,7 +41,7 @@ export default class App extends Component {
     writeNum = (item) => {
         if (item in this.operations) {
             this.setState({
-                result: this.state.result.indexOf(item) !== -1 ? this.state.result : this.state.result + item
+                result: this.havesign() ? this.state.result : this.state.result + item
             });
         }
         else {
@@ -55,7 +55,6 @@ export default class App extends Component {
 
     writeHistory = () => {
         this.arrList.push({ value: this.state.result + ' = ' + `${eval(this.state.result)}` })
-        console.log(this.arrList)
     }
 
     calculation = () => {
