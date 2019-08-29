@@ -1,33 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './history-list.css'
 
 import HistoryListItem from '../history-list-item'
 import CommonButton from '../common-button'
 
 
-const HistoryList = ({ visibility }) => {
-    let className = 'history-list visibility', list = [], arrList = JSON.parse(localStorage.getItem('arrList'));
+export default class HistoryList extends Component { 
 
-    if(visibility) {
-        className = 'history-list';
+    state = {
+        className: 'history-list invisibility',
+        list: [] 
+    }
+    
+    clearAll = () => {
+        localStorage.removeItem('arrList');
+        this.setState({
+           list: [] 
+        });
     }
 
-    if(arrList !== null) {
-        list = arrList.map( item => <HistoryListItem key = { item.value } props = { item } />);
+    componentDidMount  = () => {
+        let arrList = JSON.parse(localStorage.getItem('arrList')); 
+        this.setState({
+            list: arrList === null ? [] : arrList.map( item => <HistoryListItem key = { item.value } props = { item } />)
+         });
     }
-
-    let clearAll = () => {
-        localStorage.clear();
-    }
-
-    return (
-        <div className = {className}>
-            <ul>
-                {list}
-            </ul>
-            <CommonButton func = { clearAll } value = { 'Clear' }/>
-        </div>   
-    );
-}
-
-export default HistoryList
+    
+    render() {
+        return (
+            <div className = {  JSON.parse(localStorage.getItem('visibility')) ? 'history-list' : this.state.className }>
+                <ul>
+                    { this.state.list }
+                </ul>
+                <CommonButton func = { this.clearAll } value = { 'Clear' }/>
+            </div>   
+        );
+    }; 
+};

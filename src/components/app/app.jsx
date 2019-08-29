@@ -56,7 +56,7 @@ export default class App extends Component {
     writeHistory = () => {
         if(!this.havesign()) {
             this.arrList.push({ value: this.state.result + ' = ' + `${eval(this.state.result)}` })
-            let arrListCopy = JSON.stringify(this.arrList)
+            let arrListCopy = JSON.stringify(this.arrList);
             localStorage.setItem('arrList', arrListCopy);
         }    
     }
@@ -77,7 +77,7 @@ export default class App extends Component {
          this.writeHistory();
     }
 
-    render () {
+    render() {
         return (
             <div className = "app">
                 <History/>

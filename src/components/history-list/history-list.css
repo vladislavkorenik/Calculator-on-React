@@ -1,8 +1,9 @@
-.visibility {
-    display: none;
-}
 .history-list {
     border-top: 1px solid white;
     max-height: 100px;
     overflow: auto;
+}
+
+.invisibility {
+    display: none;
 }

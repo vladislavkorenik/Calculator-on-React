@@ -15,14 +15,15 @@ export default class History extends Component {
             return {
                 visibility: !state.visibility
             };
-        });
+        });    
     };
 
     render() {
+        localStorage.setItem('visibility', `${this.state.visibility}`);
         return (
             <div className = 'history'>
                 <CommonButton func = { this.showHistory } value = { 'History' }/>
-                <HistoryList visibility = { this.state.visibility }/>
+                <HistoryList/>
             </div>
         )
     };   
