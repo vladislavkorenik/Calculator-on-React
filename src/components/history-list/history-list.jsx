@@ -4,30 +4,23 @@ import './history-list.css'
 import CommonButton from '../common-button'
 
 
-export default class HistoryList extends Component { 
-    arrList = JSON.parse(localStorage.getItem('arrList')); 
+const HistoryList = ({ visibility, clearAll, list }) => {
+    let className = 'history-list invisibility';
 
-    state = {
-        className: 'history-list invisibility',
-        list: this.arrList === null ? [] : this.arrList.map( item => <HistoryListItem key = { item.value } props = { item } />) 
+    if(visibility) {
+        className = 'history-list';
     }
 
-    clearAll = () => {
-        localStorage.removeItem('arrList');
-        this.setState({
-           list: [] 
-        });
-    }
-    
-    render() {
-        return (
-            <div className = {  JSON.parse(localStorage.getItem('visibility')) ? 'history-list' : this.state.className }>
-                <ul>
-                    { this.state.list }
-                </ul>
-                <CommonButton func = { this.clearAll } value = { 'Clear' }/>
-            </div>   
-        );
-    }; 
-};
+    return (
+        <div className = {className}>
+            <ul>
+                {list}
+            </ul>
+            <CommonButton func = { clearAll } value = { 'Clear' }/>
+        </div>   
+    );
+}
+
+export default HistoryList
+
 
