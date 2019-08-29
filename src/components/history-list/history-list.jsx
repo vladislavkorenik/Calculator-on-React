@@ -2,20 +2,31 @@ import React from 'react';
 import './history-list.css'
 
 import HistoryListItem from '../history-list-item'
+import CommonButton from '../common-button'
 
 
-const HistoryList = ({ visibility, arrList }) => {
-    let className = 'history-list visibility';
+const HistoryList = ({ visibility }) => {
+    let className = 'history-list visibility', list = [], arrList = JSON.parse(localStorage.getItem('arrList'));
 
     if(visibility) {
         className = 'history-list';
     }
 
-    let list =  arrList.map( item => <HistoryListItem key = { item.value } props = { item } />);
+    if(arrList !== null) {
+        list = arrList.map( item => <HistoryListItem key = { item.value } props = { item } />);
+    }
+
+    let clearAll = () => {
+        localStorage.clear();
+    }
+
     return (
-        <ul className = {className}>
-            {list}
-        </ul>
+        <div className = {className}>
+            <ul>
+                {list}
+            </ul>
+            <CommonButton func = { clearAll } value = { 'Clear' }/>
+        </div>   
     );
 }
 

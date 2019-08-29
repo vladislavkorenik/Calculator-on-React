@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 
-import HistoryButton from '../history-button'
+import CommonButton from '../common-button'
 import HistoryList from '../history-list'
 
 
@@ -20,9 +20,9 @@ export default class History extends Component {
 
     render() {
         return (
-            <div>
-                <HistoryButton showHistory = { this.showHistory }/>
-                <HistoryList visibility = { this.state.visibility } arrList = { this.props.arrList }/>
+            <div className = 'history'>
+                <CommonButton func = { this.showHistory } value = { 'History' }/>
+                <HistoryList visibility = { this.state.visibility }/>
             </div>
         )
     };   

@@ -54,7 +54,11 @@ export default class App extends Component {
     }
 
     writeHistory = () => {
-        this.arrList.push({ value: this.state.result + ' = ' + `${eval(this.state.result)}` })
+        if(!this.havesign()) {
+            this.arrList.push({ value: this.state.result + ' = ' + `${eval(this.state.result)}` })
+            let arrListCopy = JSON.stringify(this.arrList)
+            localStorage.setItem('arrList', arrListCopy);
+        }    
     }
 
     calculation = () => {
@@ -76,7 +80,7 @@ export default class App extends Component {
     render () {
         return (
             <div className = "app">
-                <History arrList = { this.arrList }/>
+                <History/>
                 <Screen result = { this.state.result }/>
                 <Buttons add = { this.writeNum } clear = { this.clear } backspace = { this.backspace } equal = { this.calculation } radical = { this.radical }/>
             </div>

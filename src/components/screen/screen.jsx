@@ -4,7 +4,9 @@ import './screen.css'
 
 const Screen = ({ result }) => {
     return (
-        <p className = 'screen'>{ result }</p>
+        <div className = 'screen'>
+            <p >{ result }</p>
+        </div>      
     );
 };
 
