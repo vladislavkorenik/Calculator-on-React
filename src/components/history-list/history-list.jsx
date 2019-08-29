@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './history-list.css'
 
-import HistoryListItem from '../history-list-item'
 import CommonButton from '../common-button'
 
 
@@ -31,3 +30,4 @@ export default class HistoryList extends Component {
         );
     }; 
 };
+

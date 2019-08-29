@@ -19,11 +19,10 @@ export default class History extends Component {
     };
 
     render() {
-        localStorage.setItem('visibility', `${this.state.visibility}`);
         return (
             <div className = 'history'>
                 <CommonButton func = { this.showHistory } value = { 'History' }/>
-                <HistoryList/>
+                <HistoryList visibility = { this.state.visibility } clearAll = { this.props.clearAll } list = { this.props.list }/>
             </div>
         )
     };   

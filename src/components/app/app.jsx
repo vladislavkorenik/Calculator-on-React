@@ -4,6 +4,7 @@ import './app.css'
 import Buttons from '../buttons'
 import Screen from '../screen'
 import History from '../history'
+import HistoryListItem from '../history-list-item'
 
 
 export default class App extends Component {
@@ -23,7 +24,9 @@ export default class App extends Component {
     }
 
     state = {
-        result: '0'
+        result: '0',
+        list: JSON.parse(localStorage.getItem('arrList')) === null ? [] :
+        JSON.parse(localStorage.getItem('arrList')).map( item => <HistoryListItem key = { item.value } props = { item } />)
     }
     
     clear = () => {
@@ -53,34 +56,47 @@ export default class App extends Component {
         }
     }
 
-    writeHistory = (text) => {
+    writeHistory = (radical) => {
         if(!this.havesign()) {
-            this.arrList.push({ value: text })
-            let arrListCopy = JSON.stringify(this.arrList);
-            localStorage.setItem('arrList', arrListCopy);
+            this.arrList.push({ value: radical ? `sqrt(${this.state.result}) = ${Math.sqrt(eval(this.state.result))}` :
+            `${this.state.result} = ${eval(this.state.result)}`})
+            localStorage.setItem('arrList', JSON.stringify(this.arrList));
         }    
     }
 
+
+    clearAll = () => {
+        localStorage.removeItem('arrList');
+        this.setState({
+           list: [] 
+        });
+    }
+    
+
     calculation = () => {
+        this.writeHistory(false);
         this.setState({
            result: this.havesign() ? this.state.result : 
            `${eval(this.state.result)}`  === 'Infinity' ? 'На ноль делить нельзя' : 
-           `${eval(this.state.result)}` === 'NaN' ? 'Результат не определен' : `${eval(this.state.result)}`
+           `${eval(this.state.result)}` === 'NaN' ? 'Результат не определен' : `${eval(this.state.result)}`,
+           list: JSON.parse(localStorage.getItem('arrList')) === null ? [] :
+           JSON.parse(localStorage.getItem('arrList')).map( item => <HistoryListItem key = { item.value } props = { item } />)
         });
-        this.writeHistory(this.state.result + ' = ' + `${eval(this.state.result)}`);
     }
 
     radical = () => {
+        this.writeHistory(true);
         this.setState({
-            result: this.havesign() ? this.state.result : `${Math.sqrt(eval(this.state.result))}`
-         });
-         this.writeHistory('sqrt(' + this.state.result + ')' + ' = ' + `${Math.sqrt(eval(this.state.result))}`);
+            result: this.havesign() ? this.state.result : `${Math.sqrt(eval(this.state.result))}`,
+            list: JSON.parse(localStorage.getItem('arrList')) === null ? [] :
+            JSON.parse(localStorage.getItem('arrList')).map( item => <HistoryListItem key = { item.value } props = { item } />)
+         });       
     }
 
     render() {
         return (
             <div className = "app">
-                <History/>
+                <History clearAll = { this.clearAll } list = { this.state.list }/>
                 <Screen result = { this.state.result }/>
                 <Buttons add = { this.writeNum } clear = { this.clear } backspace = { this.backspace } equal = { this.calculation } radical = { this.radical }/>
             </div>
