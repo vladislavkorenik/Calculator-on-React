@@ -15,7 +15,7 @@
     justify-content: space-between;
 }
 
-.add-button-nav button {
+.add-button button {
     background: grey;
     border: 1px solid lightgray; 
     width: 150px;
@@ -23,8 +23,24 @@
     color: white;
     outline-color: lightgrey;
 }
-.add-button-nav button:hover {
+.add-button button:hover {
     background: lightgray;
     transition: background 0.5s;
     cursor: pointer;
+}
+
+.delete-buttons {
+    display: flex;
+    justify-content: center;
+}
+.delete-buttons button {
+    margin-top: 20px;
+    background: red;
+    width: 200px;
+    height: 35px;
+}
+
+.delete-buttons button:hover {
+    background: lightcoral;
+    transition: background 0.5s;
 }

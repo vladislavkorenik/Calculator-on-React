@@ -119,9 +119,18 @@ const Buttons = ({ add, clear, backspace, equal, radical }) => {
     ];
 
     let bottns =  config.map( item => <Button key={ item.value } props = { item } />);
+    let newBottns = JSON.parse(localStorage.getItem('addButton'));
+    if(newBottns === null) {
+        newBottns = [];
+    }
+    newBottns = newBottns.map( item => {
+        item.func = add;
+        return <Button key={ item.value } props = { item } />
+    });
     return (
         <div className='buttons'>
             {bottns}
+            {newBottns}
         </div>
     );
 };
