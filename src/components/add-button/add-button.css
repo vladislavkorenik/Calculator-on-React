@@ -1,0 +1,30 @@
+.add-button input {
+    width: 290px;
+    height: 30px;
+    padding-left: 10px; 
+    outline-color: gray;
+    margin-bottom: 10px;
+}
+.add-button input:hover {
+    border: 2px solid gray;
+    transition: border 0.1s;
+}
+
+.add-button-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-button-nav button {
+    background: grey;
+    border: 1px solid lightgray; 
+    width: 150px;
+    height: 25px;
+    color: white;
+    outline-color: lightgrey;
+}
+.add-button-nav button:hover {
+    background: lightgray;
+    transition: background 0.5s;
+    cursor: pointer;
+}

@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 
 import Calculator from '../calculator';
+import AddButton from '../add-button';
 
 
 const Router = () => {
@@ -14,6 +15,7 @@ const Router = () => {
         <BrowserRouter>
             <Switch>
                 <Route exact path = '/' component = { Calculator }/>
+                <Route path = '/add-button-page' component = { AddButton }/>
             </Switch>
         </BrowserRouter>
     );

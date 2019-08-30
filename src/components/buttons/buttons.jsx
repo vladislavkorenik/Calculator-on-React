@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Button from '../button'
 
@@ -111,7 +112,12 @@ const Buttons = ({ add, clear, backspace, equal, radical }) => {
             value: '=',
             func: equal
         },
+        {
+            value: <Link to = '/add-button-page'>Add</Link>,
+            classes: 'add-button link-button'
+        },
     ];
+
     let bottns =  config.map( item => <Button key={ item.value } props = { item } />);
     return (
         <div className='buttons'>

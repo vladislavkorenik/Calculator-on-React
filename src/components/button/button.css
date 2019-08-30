@@ -31,3 +31,12 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.link-button a{
+    color: white;
+    text-decoration: none;
+}
+
+.buttons .add-button:hover {
+    font-size: 30px;
+}
