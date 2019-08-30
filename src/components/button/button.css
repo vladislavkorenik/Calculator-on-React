@@ -1,0 +1,33 @@
+.buttons button {
+    width: calc(25% - 2px);
+    font-size: 20px;
+    height: 60px;
+    border: none;
+    background: #383838;
+    padding: 5px;
+    margin: 1px;
+    color: white;
+}
+.buttons button:hover {
+    background: #606060;
+}
+.buttons .number {
+    background: #1e1e1e;
+}
+
+.common-button {
+    color: white;
+    margin: 10px 5px;
+    font-size: 17px;
+    background: none;
+    border: none;
+    outline: none;
+}
+.common-button:hover {
+    font-size: 20px;
+    transition: font-size 0.2s;
+}
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}

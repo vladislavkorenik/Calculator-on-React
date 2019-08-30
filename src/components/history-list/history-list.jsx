@@ -1,7 +1,7 @@
 import React from 'react';
 import './history-list.css'
 
-import CommonButton from '../common-button'
+import Button from '../button'
 
 
 const HistoryList = ({ visibility, clearAll, list }) => {
@@ -11,12 +11,20 @@ const HistoryList = ({ visibility, clearAll, list }) => {
         className = 'history-list';
     }
 
+    let item = {
+        value: 'Clear',
+        func: clearAll,
+        classes: 'common-button'
+    }; 
+
     return (
         <div className = {className}>
             <ul>
                 {list}
             </ul>
-            <CommonButton func = { clearAll } value = { 'Clear' }/>
+            <div className = 'button-container'>
+                <Button props = { item }/>
+            </div>    
         </div>   
     );
 }
