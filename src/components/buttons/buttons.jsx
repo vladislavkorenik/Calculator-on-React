@@ -118,19 +118,16 @@ const Buttons = ({ add, clear, backspace, equal, radical }) => {
         },
     ];
 
-    let bottns =  config.map( item => <Button key={ item.value } props = { item } />);
-    let newBottns = JSON.parse(localStorage.getItem('addButton'));
-    if(newBottns === null) {
-        newBottns = [];
-    }
-    newBottns = newBottns.map( item => {
+    let buttons =  config.map( item => <Button key={ item.value } props = { item } />);
+    let newButtons = JSON.parse(localStorage.getItem('addButton')) === null ? [] : JSON.parse(localStorage.getItem('addButton'));
+    newButtons = newButtons.map( item => {
         item.func = add;
         return <Button key={ item.value } props = { item } />
     });
     return (
         <div className='buttons'>
-            {bottns}
-            {newBottns}
+            {buttons}
+            {newButtons}
         </div>
     );
 };

@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 * {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 html {
     background: linear-gradient(45deg, white, grey) no-repeat;
@@ -14,6 +16,8 @@ html {
 .app {
     max-width: 410px;
     background: #58585a;
-    border: 1px solid #252526;
-    box-shadow: 1px 3px 1px lightgray;
+}
+.top-nav {
+    display: flex;
+    justify-content: space-between;
 }

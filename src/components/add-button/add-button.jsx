@@ -40,11 +40,11 @@ export default class AddButton extends Component {
                 <input placeholder = 'Введите число' 
                 onChange = { this.enterValue }/>
                 <div className = 'add-button-nav'>
-                    <Link to = '/'><Button props = { { value: 'Добавить', classes: 'link-button', func: this.addNewButton } }/></Link>
-                    <Link to = '/'><Button props = { { value: 'Назад', classes: 'link-button' } }/></Link>
+                    <Link to = '/calculator'><Button props = { { value: 'Добавить', classes: 'link-button', func: this.addNewButton } }/></Link>
+                    <Link to = '/calculator'><Button props = { { value: 'Назад', classes: 'link-button' } }/></Link>
                 </div>
                 <div className = 'delete-buttons'>
-                    <Link to = '/'><Button props = { { value: 'Удалить все кнопки', classes: 'link-button', func: this.deleteButtons } }/></Link>
+                    <Link to = '/calculator'><Button props = { { value: 'Удалить все кнопки', classes: 'link-button', func: this.deleteButtons } }/></Link>
                 </div>
             </form>
         );

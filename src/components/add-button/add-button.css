@@ -1,11 +1,13 @@
-.add-button input {
+.add-button input,
+.create-user input {
     width: 290px;
     height: 30px;
     padding-left: 10px; 
     outline-color: gray;
     margin-bottom: 10px;
 }
-.add-button input:hover {
+.add-button input:hover,
+.create-user input:hover {
     border: 2px solid gray;
     transition: border 0.1s;
 }
@@ -15,15 +17,17 @@
     justify-content: space-between;
 }
 
-.add-button button {
+.add-button button,
+.create-user button {
     background: grey;
     border: 1px solid lightgray; 
     width: 150px;
-    height: 25px;
+    padding: 8px;
     color: white;
     outline-color: lightgrey;
 }
-.add-button button:hover {
+.add-button button:hover,
+.create-user button:hover {
     background: lightgray;
     transition: background 0.5s;
     cursor: pointer;
@@ -35,9 +39,8 @@
 }
 .delete-buttons button {
     margin-top: 20px;
-    background: red;
+    background: #dd2247;
     width: 200px;
-    height: 35px;
 }
 
 .delete-buttons button:hover {

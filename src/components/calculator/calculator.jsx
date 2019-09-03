@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import './calculator.css'
 
+import Button from '../button'
 import Buttons from '../buttons'
 import Screen from '../screen'
 import History from '../history'
 import HistoryListItem from '../history-list-item'
+import { Link } from 'react-router-dom'
 
 
 export default class App extends Component {
@@ -87,7 +89,9 @@ export default class App extends Component {
     radical = () => {
         this.writeHistory(true);
         this.setState({
-            result: this.havesign() ? this.state.result : `${Math.sqrt(eval(this.state.result))}`,
+            result: this.havesign() ? this.state.result :
+            `${Math.sqrt(eval(this.state.result))}` === 'NaN' ? 'Результат не определен' :
+            `${Math.sqrt(eval(this.state.result))}`,
             list: JSON.parse(localStorage.getItem('arrList')) === null ? [] :
             JSON.parse(localStorage.getItem('arrList')).map( item => <HistoryListItem key = { item.value } props = { item } />)
          });       
@@ -96,7 +100,10 @@ export default class App extends Component {
     render() {
         return (
             <div className = "app">
-                <History clearAll = { this.clearAll } list = { this.state.list }/>
+                <div className = 'top-nav'>
+                    <Link to = '/'><Button props = { { value: 'Back', classes: 'common-button' } }/></Link>
+                    <History clearAll = { this.clearAll } list = { this.state.list }/>
+                </div>
                 <Screen result = { this.state.result }/>
                 <Buttons add = { this.writeNum } clear = { this.clear } backspace = { this.backspace } equal = { this.calculation } radical = { this.radical }/>
             </div>
