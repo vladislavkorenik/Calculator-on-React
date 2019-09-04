@@ -19,7 +19,7 @@ export default class History extends Component {
     };
 
     item = {
-        value: 'History',
+        value: 'История',
         func: this.showHistory,
         classes: 'common-button'
     };  

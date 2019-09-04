@@ -13,15 +13,17 @@ export default class CreateUser extends Component {
 
     enterValue = (event) => {
         this.setState({
-            value: event.target.value
+            user: event.target.value
         });
     };
 
     addNewUser = () => {
+        if(this.state.user.search(/^[^\W\d_]+$/) !== -1) {
             this.arr.push({
-                user: this.state.value
+                user: this.state.user
             })
             localStorage.setItem('createUser', JSON.stringify(this.arr))
+        }
     }
 
     deleteUsers = () => {

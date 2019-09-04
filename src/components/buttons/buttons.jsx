@@ -16,81 +16,81 @@ const Buttons = ({ add, clear, backspace, equal, radical }) => {
         },
         {
             value: 'mod',
-            symbol: '%',
+            item: '%',
             func: add
         },
         {
             value: '*',
-            symbol: '*',
+            item: '*',
             func: add
         },
         {
             value: '1',
-            symbol: '1',
+            item: '1',
             classes: 'number',
             func: add
         },
         {
             value: '2',
-            symbol: '2',
+            item: '2',
             classes: 'number',
             func: add
         },
         {
             value: '3',
-            symbol: '3',
+            item: '3',
             classes: 'number',
             func: add
         },
         {
             value: '/',
-            symbol: '/',
+            item: '/',
             func: add
         },
         {
             value: '4',
-            symbol: '4',
+            item: '4',
             classes: 'number',
             func: add
         },
         {
             value: '5',
-            symbol: '5',
+            item: '5',
             classes: 'number',
             func: add
         },
         {
             value: '6',
-            symbol: '6',
+            item: '6',
             classes: 'number',
             func: add
         },
         {
             value: '-',
-            symbol: '-',
+            item: '-',
             func: add
         },
         {
             value: '7',
-            symbol: '7',
+            item: '7',
             classes: 'number',
             func: add
         },
         {
             value: '8',
-            symbol: '8',
+            item: '8',
             classes: 'number',
             func: add
         },
         {
             value: '9',
-            symbol: '9',
+            item: '9',
             classes: 'number',
             func: add
         },
         {
             value: '+',
-            symbol: '+',
+            item: '+',
             func: add
         },
         {
@@ -99,13 +99,13 @@ const Buttons = ({ add, clear, backspace, equal, radical }) => {
         },
         {
             value: '0',
-            symbol: '0',
+            item: '0',
             classes: 'number',
             func: add
         },
         {
             value: '.',
-            symbol: '.',
+            item: '.',
             func: add
         },
         {
@@ -113,7 +113,7 @@ const Buttons = ({ add, clear, backspace, equal, radical }) => {
             func: equal
         },
         {
-            value: <Link to = '/add-button-page'>Add</Link>,
+            value: <Link to = '/add-button-page'>Добавить</Link>,
             classes: 'add-button link-button'
         },
     ];

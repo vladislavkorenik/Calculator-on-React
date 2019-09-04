@@ -1,13 +1,17 @@
+button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
 .buttons button {
     width: calc(25% - 2px);
-    font-size: 20px;
+    font-size: 18px;
     height: 60px;
-    border: none;
     background: #383838;
     padding: 5px;
     margin: 1px;
     color: white;
-    outline: none;
 }
 .buttons button:hover {
     background: #606060;
@@ -20,14 +24,12 @@
     color: white;
     margin: 10px 5px;
     font-size: 17px;
-    background: none;
-    border: none;
-    outline: none;
 }
 .common-button:hover {
     font-size: 20px;
     transition: font-size 0.2s;
 }
+
 .button-container {
     display: flex;
     justify-content: flex-end;
@@ -40,4 +42,8 @@
 
 .buttons .add-button:hover a {
     color: black;
+}
+
+.user-list-button:hover {
+    color: lightgray;
 }

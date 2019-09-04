@@ -2,9 +2,9 @@ import React from 'react';
 import './button.css'
 
 
-const Button = ( { props:{ value, func = console.log, symbol, classes } } ) => {
+const Button = ( { props:{ value, func = console.log, item, classes } } ) => {
     return (
-        <button className={ classes } onClick={ () => func(symbol) }>{ value }</button>   
+        <button className={ classes } onClick={ () => func(item) }>{ value }</button>   
     );
 };
 

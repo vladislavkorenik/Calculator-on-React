@@ -101,7 +101,7 @@ export default class App extends Component {
         return (
             <div className = "app">
                 <div className = 'top-nav'>
-                    <Link to = '/'><Button props = { { value: 'Back', classes: 'common-button' } }/></Link>
+                    <Link to = '/'><Button props = { { value: 'Назад', classes: 'common-button' } }/></Link>
                     <History clearAll = { this.clearAll } list = { this.state.list }/>
                 </div>
                 <Screen result = { this.state.result }/>

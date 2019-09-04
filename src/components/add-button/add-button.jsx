@@ -23,7 +23,7 @@ export default class AddButton extends Component {
         if(isNumeric(this.state.value)) {
             this.arr.push({
                 value: this.state.value,
-                symbol: this.state.value,
+                item: this.state.value,
                 classes: 'number',
             })
             localStorage.setItem('addButton', JSON.stringify(this.arr))

@@ -11,19 +11,13 @@ const HistoryList = ({ visibility, clearAll, list }) => {
         className = 'history-list';
     }
 
-    let item = {
-        value: 'Clear',
-        func: clearAll,
-        classes: 'common-button'
-    }; 
-
     return (
         <div className = {className}>
             <ul>
                 {list}
             </ul>
             <div className = 'button-container'>
-                <Button props = { item }/>
+                <Button props = { { value: 'Очистить', classes: 'common-button', func: clearAll } }/>
             </div>    
         </div>   
     );
