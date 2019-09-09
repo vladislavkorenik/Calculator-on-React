@@ -15,6 +15,7 @@ export const deleteAllUsers = () => {
 }
 
 export const chooseUser = (currenId) => {
+    localStorage.setItem('currentUser',currenId);
     return {
         type: "CHOOSE_USER",
         currenId
@@ -33,6 +34,22 @@ export const deleteUser = (arr) => {
     localStorage.setItem('users',JSON.stringify(arr));
     return {
         type: "DELETE_USER",
+        users: [...arr] 
+    }
+}
+
+export const addHistory = (arr) => {
+    localStorage.setItem('users',JSON.stringify(arr));
+    return {
+        type: "ADD_HISTORY",
+        users: [...arr] 
+    }
+}
+
+export const clearHistory = (arr) => {
+    localStorage.setItem('users',JSON.stringify(arr));
+    return {
+        type: "ADD_HISTORY",
         users: [...arr] 
     }
 }

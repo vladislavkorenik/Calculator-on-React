@@ -38,13 +38,19 @@ export default function usersReducer (state = initialState, action) {
             break;
             
             case "ADD_HISTORY":
-            break;             
+                return {
+                    ...state,
+                    users: [...action.users]
+                };          
     
             case "DELETE_BUTTONS":
             break;
     
             case "CLEAR_HISTORY":
-            break;        
+                return {
+                    ...state,
+                    users: [...action.users]
+                };       
     
             default: return state;
         };

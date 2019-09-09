@@ -8,6 +8,7 @@ import Buttons from '../buttons'
 import Screen from '../screen'
 import History from '../history'
 import HistoryListItem from '../history-list-item'
+import { addHistory, clearHistory } from '../actions';
 import './calculator.css'
 
 
@@ -21,7 +22,7 @@ class App extends Component {
         '.': 1
     };
 
-    arrList = [];
+    currenUser = this.props.users[this.props.users.findIndex( el => el.id === this.props.currenId)];
     
     havesign = () => {
         return this.state.result.charAt(this.state.result.length - 1) in this.operations ? true : false
@@ -29,11 +30,10 @@ class App extends Component {
 
     state = {
         result: '0',
-        list: JSON.parse(localStorage.getItem('createUser'))[0].history.map( item => <HistoryListItem key = { item.value } props = { item } />)
+        list: this.currenUser.history.map( item => <HistoryListItem key = { item.value } props = { item } />)
     }
     
     clear = () => {
-        console.log(this.props.currenId);
         this.setState({
             result: '0'
         });
@@ -62,17 +62,20 @@ class App extends Component {
 
     writeHistory = (radical) => {
         if(!this.havesign()) {
-            this.arrList.push({ value: radical ? `sqrt(${this.state.result}) = ${Math.sqrt(eval(this.state.result))}` :
+            this.currenUser.history.push({ value: radical ? `sqrt(${this.state.result}) = ${Math.sqrt(eval(this.state.result))}` :
             `${this.state.result} = ${eval(this.state.result)}`})
-            let arrCopy = JSON.parse(localStorage.getItem('createUser'));
-            arrCopy[0].history = this.arrList;
-            localStorage.setItem('createUser', JSON.stringify(arrCopy));
+            let arr = this.props.users
+            arr[arr.findIndex( el => el.id === this.props.currenId)] = this.currenUser;
+            this.props.addHistory(arr);
         }    
     }
 
 
     clearAll = () => {
-        localStorage.removeItem('arrList');
+        this.currenUser.history = [];
+        let arr = this.props.users
+        arr[arr.findIndex( el => el.id === this.props.currenId)] = this.currenUser;
+        this.props.clearHistory(arr);
         this.setState({
            list: [] 
         });
@@ -85,7 +88,7 @@ class App extends Component {
            result: this.havesign() ? this.state.result : 
            `${eval(this.state.result)}`  === 'Infinity' ? 'На ноль делить нельзя' : 
            `${eval(this.state.result)}` === 'NaN' ? 'Результат не определен' : `${eval(this.state.result)}`,
-           list: JSON.parse(localStorage.getItem('createUser'))[0].history.map( item => <HistoryListItem key = { item.value } props = { item } />)
+           list: this.currenUser.history.map( item => <HistoryListItem key = { item.value } props = { item } />)
         });
     }
 
@@ -95,7 +98,7 @@ class App extends Component {
             result: this.havesign() ? this.state.result :
             `${Math.sqrt(eval(this.state.result))}` === 'NaN' ? 'Результат не определен' :
             `${Math.sqrt(eval(this.state.result))}`,
-            list: JSON.parse(localStorage.getItem('createUser'))[0].history.map( item => <HistoryListItem key = { item.value } props = { item } />)
+            list: this.currenUser.history.map( item => <HistoryListItem key = { item.value } props = { item } />)
          });       
     }
 
@@ -116,11 +119,23 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        currenId: state.currenId
+        currenId: state.currenId,
+        users: state.users
     };
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        clearHistory: (arr) => {
+            dispatch(clearHistory(arr));
+        },
+        addHistory: (arr) => {
+            dispatch(addHistory(arr));
+        }
+    };
+};
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(App);
