@@ -1,53 +1,66 @@
 import React, { Component } from 'react'
-
-
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+
 import Button from '../button';
+import InputPlace from '../input-place';
+import { editUser, deleteUser, chooseUser } from '../actions';
 import './user-list.css';
 
-export default class UserList extends Component {
+
+class UserList extends Component {
     state = {
-        newUsers: JSON.parse(localStorage.getItem('createUser')) === null ? [] : 
-                  JSON.parse(localStorage.getItem('createUser'))
+        newUsers: this.props.users === null ? [] : this.props.users,
+        id: ''
     };
 
-    inputPlace = false;
-
     deleteUser = (item) => {
+        let arr = this.props.users;
 
-        let arr = JSON.parse(localStorage.getItem('createUser'));
-        arr = arr.filter( el => el.user !== item );
+        arr = arr.filter( el => el.id !== item );
 
-        localStorage.setItem('createUser',JSON.stringify(arr));
+        this.props.delete(arr);
 
         this.setState({
-            newUsers: JSON.parse(localStorage.getItem('createUser'))
+            newUsers: arr,
         });
     };
 
     editUser = (item) => {
-        this.inputPlace = true;
+        this.setState({
+            id: item
+        }); 
+    }
 
-        let arr = JSON.parse(localStorage.getItem('createUser'));
+    acceptUser = () => {
+        let arr = this.props.users;
+
         arr = arr.map( el => {
-            el.user = el.user === item ? el.user = 'd' : el.user;
+            if(el.id === this.state.id) {
+                el.user = localStorage.getItem('enterValue');
+                el.id = `${localStorage.getItem('enterValue') + arr.length}`
+            }
+
             return el;
         } );
 
-        localStorage.setItem('createUser',JSON.stringify(arr));
+        this.props.edit(arr);
 
         this.setState({
-            newUsers: JSON.parse(localStorage.getItem('createUser'))
-        });
+            newUsers: arr
+        }); 
+
+        localStorage.removeItem('enterValue');
     }
 
     render(){
         const arr = this.state.newUsers.map( item => 
-            <li key={ item.user }>
-                { this.inputPlace ? <input type="text"/> : <Link to = '/calculator'>{ item.user }</Link> }
+            <li key={ item.id }>
+                { this.state.id === item.id ? <InputPlace/> : <Link to = '/calculator' onClick = { () => this.props.chooseUser(item.id) }>{ item.user }</Link> }
                 <div>
-                    <Button props = { { value: 'Изменить', classes: 'user-list-button', func: this.editUser, item: item.user } }/>
-                    <Button props = { { value: 'Удалить', classes: 'user-list-button', func: this.deleteUser, item: item.user } }/>
+                    <Button props = { { value: this.state.id === item.id ? 'Применить' : 'Изменить', classes: 'user-list-button', func: this.state.id === item.id ? this.acceptUser : this.editUser , item: item.id } }/>
+                    <Button props = { { value: 'Удалить', classes: 'user-list-button', func: this.deleteUser, item: item.id } }/>
                 </div>
             </li>);
         return(
@@ -60,3 +73,28 @@ export default class UserList extends Component {
         );
     };
 };
+
+const mapStateToProps = (state) => {
+    return {
+        users: state.users
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        delete: (arr) => {
+            dispatch(deleteUser(arr));
+        },
+        edit: (arr) => {
+            dispatch(editUser(arr));
+        },
+        chooseUser: (value) => {
+            dispatch(chooseUser(value));
+        }
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UserList);

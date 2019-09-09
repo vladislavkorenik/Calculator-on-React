@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
-import './calculator.css'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
+
 
 import Button from '../button'
 import Buttons from '../buttons'
 import Screen from '../screen'
 import History from '../history'
 import HistoryListItem from '../history-list-item'
-import { Link } from 'react-router-dom'
+import './calculator.css'
 
 
-export default class App extends Component {
+class App extends Component {
     operations = {
         '+': 1, 
         '-': 1, 
@@ -27,11 +29,11 @@ export default class App extends Component {
 
     state = {
         result: '0',
-        list: JSON.parse(localStorage.getItem('arrList')) === null ? [] :
-        JSON.parse(localStorage.getItem('arrList')).map( item => <HistoryListItem key = { item.value } props = { item } />)
+        list: JSON.parse(localStorage.getItem('createUser'))[0].history.map( item => <HistoryListItem key = { item.value } props = { item } />)
     }
     
     clear = () => {
+        console.log(this.props.currenId);
         this.setState({
             result: '0'
         });
@@ -62,7 +64,9 @@ export default class App extends Component {
         if(!this.havesign()) {
             this.arrList.push({ value: radical ? `sqrt(${this.state.result}) = ${Math.sqrt(eval(this.state.result))}` :
             `${this.state.result} = ${eval(this.state.result)}`})
-            localStorage.setItem('arrList', JSON.stringify(this.arrList));
+            let arrCopy = JSON.parse(localStorage.getItem('createUser'));
+            arrCopy[0].history = this.arrList;
+            localStorage.setItem('createUser', JSON.stringify(arrCopy));
         }    
     }
 
@@ -81,8 +85,7 @@ export default class App extends Component {
            result: this.havesign() ? this.state.result : 
            `${eval(this.state.result)}`  === 'Infinity' ? 'На ноль делить нельзя' : 
            `${eval(this.state.result)}` === 'NaN' ? 'Результат не определен' : `${eval(this.state.result)}`,
-           list: JSON.parse(localStorage.getItem('arrList')) === null ? [] :
-           JSON.parse(localStorage.getItem('arrList')).map( item => <HistoryListItem key = { item.value } props = { item } />)
+           list: JSON.parse(localStorage.getItem('createUser'))[0].history.map( item => <HistoryListItem key = { item.value } props = { item } />)
         });
     }
 
@@ -92,8 +95,7 @@ export default class App extends Component {
             result: this.havesign() ? this.state.result :
             `${Math.sqrt(eval(this.state.result))}` === 'NaN' ? 'Результат не определен' :
             `${Math.sqrt(eval(this.state.result))}`,
-            list: JSON.parse(localStorage.getItem('arrList')) === null ? [] :
-            JSON.parse(localStorage.getItem('arrList')).map( item => <HistoryListItem key = { item.value } props = { item } />)
+            list: JSON.parse(localStorage.getItem('createUser'))[0].history.map( item => <HistoryListItem key = { item.value } props = { item } />)
          });       
     }
 
@@ -110,3 +112,15 @@ export default class App extends Component {
         );
     }  
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        currenId: state.currenId
+    };
+};
+
+
+export default connect(
+    mapStateToProps
+)(App);

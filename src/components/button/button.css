@@ -3,6 +3,7 @@ button {
     border: none;
     background: none;
     cursor: pointer;
+    padding: 0px 6px;
 }
 .buttons button {
     width: calc(25% - 2px);
