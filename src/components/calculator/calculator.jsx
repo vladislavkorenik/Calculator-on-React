@@ -7,6 +7,7 @@ import Button from '../button'
 import Buttons from '../buttons'
 import Screen from '../screen'
 import History from '../history'
+import CalculatorHeader from '../calculator-header'
 import HistoryListItem from '../history-list-item'
 import { addHistory, clearHistory } from '../actions';
 import './calculator.css'
@@ -104,13 +105,18 @@ class App extends Component {
 
     render() {
         return (
-            <div className = "app">
-                <div className = 'top-nav'>
-                    <Link to = '/'><Button props = { { value: 'Назад', classes: 'common-button' } }/></Link>
-                    <History clearAll = { this.clearAll } list = { this.state.list }/>
+            <div className = 'app'>
+                <div className = 'calculator-header'>
+                    <CalculatorHeader name = { this.currenUser.user }/>
                 </div>
-                <Screen result = { this.state.result }/>
-                <Buttons add = { this.writeNum } clear = { this.clear } backspace = { this.backspace } equal = { this.calculation } radical = { this.radical }/>
+                <div className = "calculator">
+                    <div className = 'top-nav'>
+                        <Link to = '/'><Button props = { { value: 'Назад', classes: 'common-button' } }/></Link>
+                        <History clearAll = { this.clearAll } list = { this.state.list }/>
+                    </div>
+                    <Screen result = { this.state.result }/>
+                    <Buttons add = { this.writeNum } clear = { this.clear } backspace = { this.backspace } equal = { this.calculation } radical = { this.radical }/>
+                </div>
             </div>
         );
     }  
