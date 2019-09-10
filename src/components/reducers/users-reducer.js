@@ -35,16 +35,22 @@ export default function usersReducer (state = initialState, action) {
                 };
 
             case "ADD_NEW_BUTTON":
-            break;
+                return {
+                    ...state,
+                    users: [...action.users]
+                };
+
+            case "DELETE_BUTTONS":
+                return {
+                    ...state,
+                    users: [...action.users]
+                };
             
             case "ADD_HISTORY":
                 return {
                     ...state,
                     users: [...action.users]
                 };          
-    
-            case "DELETE_BUTTONS":
-            break;
     
             case "CLEAR_HISTORY":
                 return {

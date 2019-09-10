@@ -13,7 +13,7 @@ class CreateUser extends Component {
         user: ''
     }
 
-    arr = this.props.users === null ? [] : this.props.users;
+    arr = this.props.users;
 
     enterValue = (event) => {
         this.setState({

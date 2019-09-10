@@ -1,19 +1,22 @@
 import React, { Component } from 'react' 
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 
 import Button from '../button'
 import './add-button.css'
 import isNumeric from "../../logic/isNumeric";
+import { addNewButton, deleteButtons } from '../actions';
 
 
-export default class AddButton extends Component {
+class AddButton extends Component {
     state = {
         value: ''
     }
 
-    arr = JSON.parse(localStorage.getItem('addButton')) === null ? [] : JSON.parse(localStorage.getItem('addButton'));
+    curentUser = this.props.users[this.props.users.findIndex( el => el.id === this.props.currenId)]
 
-    enterValue = (event) => {
+    enterValue = ( event) => {
         this.setState({
             value: event.target.value
         });
@@ -21,17 +24,22 @@ export default class AddButton extends Component {
 
     addNewButton = () => {
         if(isNumeric(this.state.value)) {
-            this.arr.push({
+            this.curentUser.button.push({
                 value: this.state.value,
                 item: this.state.value,
                 classes: 'number',
             })
-            localStorage.setItem('addButton', JSON.stringify(this.arr))
+
+            let arr = this.props.users;
+            arr[arr.findIndex( el => el.id === this.props.currenId)] = this.curentUser;
+            this.props.add(arr);
         }   
     }
 
     deleteButtons = () => {
-        localStorage.removeItem('addButton');
+        let arr = this.props.users;
+        arr[arr.findIndex( el => el.id === this.props.currenId)] = [];
+        this.props.add(arr);
     }
 
     render() {
@@ -50,4 +58,28 @@ export default class AddButton extends Component {
         );
     }; 
 };
+
+
+const mapStateToProps = (state) => {
+    return {
+        users: state.users,
+        currenId: state.currenId
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        add: (arr) => {
+            dispatch(addNewButton(arr));
+        },
+        delete: (arr) => {
+            dispatch(deleteButtons(arr));
+        }
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AddButton);
 

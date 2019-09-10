@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Button from '../button'
 
 
-const Buttons = ({ add, clear, backspace, equal, radical }) => {
+const Buttons = ({ add, clear, backspace, equal, radical, users, currenId }) => {
+    let curentUser = users[users.findIndex( el => el.id === currenId)];
+
     const config = [
         {
             value: 'C',
@@ -119,7 +122,7 @@ const Buttons = ({ add, clear, backspace, equal, radical }) => {
     ];
 
     let buttons =  config.map( item => <Button key={ item.value } props = { item } />);
-    let newButtons = JSON.parse(localStorage.getItem('addButton')) === null ? [] : JSON.parse(localStorage.getItem('addButton'));
+    let newButtons = curentUser.button;
     newButtons = newButtons.map( item => {
         item.func = add;
         return <Button key={ item.value } props = { item } />
@@ -133,4 +136,13 @@ const Buttons = ({ add, clear, backspace, equal, radical }) => {
 };
 
 
-export default Buttons;
+const mapStateToProps = (state) => {
+    return {
+        users: state.users,
+        currenId: state.currenId
+    };
+};
+
+export default connect(
+    mapStateToProps
+)(Buttons);

@@ -53,3 +53,19 @@ export const clearHistory = (arr) => {
         users: [...arr] 
     }
 }
+
+export const deleteButtons = (arr) => {
+    localStorage.setItem('users',JSON.stringify(arr));
+    return {
+        type: "DELETE_BUTTONS",
+        users: [...arr] 
+    }
+}
+
+export const addNewButton = (arr) => {
+    localStorage.setItem('users',JSON.stringify(arr));
+    return {
+        type: "ADD_NEW_BUTTON",
+        users: [...arr] 
+    }
+}

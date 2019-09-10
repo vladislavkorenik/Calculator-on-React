@@ -16,9 +16,7 @@ class UserList extends Component {
     };
 
     deleteUser = (item) => {
-        let arr = this.props.users;
-
-        arr = arr.filter( el => el.id !== item );
+        let arr = this.props.users.filter( el => el.id !== item );
 
         this.props.delete(arr);
 
@@ -34,12 +32,10 @@ class UserList extends Component {
     }
 
     acceptUser = () => {
-        let arr = this.props.users;
-
-        arr = arr.map( el => {
+        let arr = this.props.users.map( el => {
             if(el.id === this.state.id) {
                 el.user = localStorage.getItem('enterValue');
-                el.id = `${localStorage.getItem('enterValue') + arr.length}`
+                el.id = `${localStorage.getItem('enterValue') + this.props.users.length}`
             }
 
             return el;
