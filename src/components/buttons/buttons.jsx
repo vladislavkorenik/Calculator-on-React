@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import Button from '../button'
 
 
-const Buttons = ({ add, clear, backspace, equal, radical, users, currenId }) => {
-    let curentUser = users[users.findIndex( el => el.id === currenId)];
+const Buttons = ({ add, clear, backspace, equal, radical, currentId, users }) => {
+    let currentUser = users[users.findIndex( el => el.id === currentId)];
 
     const config = [
         {
@@ -122,7 +122,7 @@ const Buttons = ({ add, clear, backspace, equal, radical, users, currenId }) => 
     ];
 
     let buttons =  config.map( item => <Button key={ item.value } props = { item } />);
-    let newButtons = curentUser.button;
+    let newButtons = currentUser.button;
     newButtons = newButtons.map( item => {
         item.func = add;
         return <Button key={ item.value } props = { item } />
@@ -139,7 +139,7 @@ const Buttons = ({ add, clear, backspace, equal, radical, users, currenId }) => 
 const mapStateToProps = (state) => {
     return {
         users: state.users,
-        currenId: state.currenId
+        currentId: state.currentId
     };
 };
 

@@ -5,42 +5,19 @@ import { connect } from 'react-redux';
 
 import Button from '../button'
 import './add-button.css'
-import isNumeric from "../../logic/isNumeric";
 import { addNewButton, deleteButtons } from '../actions';
 
 
 class AddButton extends Component {
     state = {
-        value: ''
+        number: ''
     }
-
-    curentUser = this.props.users[this.props.users.findIndex( el => el.id === this.props.currenId)]
 
     enterValue = ( event) => {
         this.setState({
-            value: event.target.value
+            number: event.target.value
         });
     };
-
-    addNewButton = () => {
-        if(isNumeric(this.state.value)) {
-            this.curentUser.button.push({
-                value: this.state.value,
-                item: this.state.value,
-                classes: 'number',
-            })
-
-            let arr = this.props.users;
-            arr[arr.findIndex( el => el.id === this.props.currenId)] = this.curentUser;
-            this.props.add(arr);
-        }   
-    }
-
-    deleteButtons = () => {
-        let arr = this.props.users;
-        arr[arr.findIndex( el => el.id === this.props.currenId)] = [];
-        this.props.add(arr);
-    }
 
     render() {
         return(
@@ -48,38 +25,30 @@ class AddButton extends Component {
                 <input placeholder = 'Введите число' 
                 onChange = { this.enterValue }/>
                 <div className = 'add-button-nav'>
-                    <Link to = '/calculator'><Button props = { { value: 'Добавить', classes: 'link-button', func: this.addNewButton } }/></Link>
+                    <Link to = '/calculator'><Button props = { { value: 'Добавить', classes: 'link-button', func: this.props.addNewButton, item: this.state.number } }/></Link>
                     <Link to = '/calculator'><Button props = { { value: 'Назад', classes: 'link-button' } }/></Link>
                 </div>
                 <div className = 'delete-buttons'>
-                    <Link to = '/calculator'><Button props = { { value: 'Удалить все кнопки', classes: 'link-button', func: this.deleteButtons } }/></Link>
+                    <Link to = '/calculator'><Button props = { { value: 'Удалить все кнопки', classes: 'link-button', func: this.props.deleteButtons } }/></Link>
                 </div>
             </form>
         );
     }; 
 };
 
-
-const mapStateToProps = (state) => {
-    return {
-        users: state.users,
-        currenId: state.currenId
-    };
-};
-
 const mapDispatchToProps = (dispatch) => {
     return {
-        add: (arr) => {
-            dispatch(addNewButton(arr));
+        addNewButton: (number) => {
+            dispatch(addNewButton(number));
         },
-        delete: (arr) => {
-            dispatch(deleteButtons(arr));
+        deleteButtons: () => {
+            dispatch(deleteButtons());
         }
     };
 };
 
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(AddButton);
 

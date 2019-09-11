@@ -23,7 +23,7 @@ class App extends Component {
         '.': 1
     };
 
-    currenUser = this.props.users[this.props.users.findIndex( el => el.id === this.props.currenId)];
+    currentUser = this.props.users[this.props.users.findIndex( el => el.id === this.props.currentId)];
     
     havesign = () => {
         return this.state.result.charAt(this.state.result.length - 1) in this.operations ? true : false
@@ -31,7 +31,7 @@ class App extends Component {
 
     state = {
         result: '0',
-        list: this.currenUser.history.map( item => <HistoryListItem key = { item.value } props = { item } />)
+        list: this.currentUser.history.map( item => <HistoryListItem key = { item.value } props = { item } />)
     }
     
     clear = () => {
@@ -63,22 +63,18 @@ class App extends Component {
 
     writeHistory = (radical) => {
         if(!this.havesign()) {
-            this.currenUser.history.push({ value: radical ? `sqrt(${this.state.result}) = ${Math.sqrt(eval(this.state.result))}` :
+            this.currentUser.history.push({ value: radical ? `sqrt(${this.state.result}) = ${Math.sqrt(eval(this.state.result))}` :
             `${this.state.result} = ${eval(this.state.result)}`})
-            let arr = this.props.users
-            arr[arr.findIndex( el => el.id === this.props.currenId)] = this.currenUser;
-            this.props.addHistory(arr);
+            this.props.addHistory(this.currentUser);
         }    
     }
 
 
     clearAll = () => {
-        this.currenUser.history = [];
-        let arr = this.props.users
-        arr[arr.findIndex( el => el.id === this.props.currenId)] = this.currenUser;
-        this.props.clearHistory(arr);
+        this.currentUser.history = [];
+        this.props.clearHistory(this.currentUser);
         this.setState({
-           list: [] 
+           list: this.currentUser.history
         });
     }
     
@@ -89,7 +85,7 @@ class App extends Component {
            result: this.havesign() ? this.state.result : 
            `${eval(this.state.result)}`  === 'Infinity' ? 'На ноль делить нельзя' : 
            `${eval(this.state.result)}` === 'NaN' ? 'Результат не определен' : `${eval(this.state.result)}`,
-           list: this.currenUser.history.map( item => <HistoryListItem key = { item.value } props = { item } />)
+           list: this.currentUser.history.map( item => <HistoryListItem key = { item.value } props = { item } />)
         });
     }
 
@@ -99,7 +95,7 @@ class App extends Component {
             result: this.havesign() ? this.state.result :
             `${Math.sqrt(eval(this.state.result))}` === 'NaN' ? 'Результат не определен' :
             `${Math.sqrt(eval(this.state.result))}`,
-            list: this.currenUser.history.map( item => <HistoryListItem key = { item.value } props = { item } />)
+            list: this.currentUser.history.map( item => <HistoryListItem key = { item.value } props = { item } />)
          });       
     }
 
@@ -107,7 +103,7 @@ class App extends Component {
         return (
             <div className = 'app'>
                 <div className = 'calculator-header'>
-                    <CalculatorHeader name = { this.currenUser.user }/>
+                    <CalculatorHeader name = { this.currentUser.user }/>
                 </div>
                 <div className = "calculator">
                     <div className = 'top-nav'>
@@ -125,18 +121,18 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        currenId: state.currenId,
+        currentId: state.currentId,
         users: state.users
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        clearHistory: (arr) => {
-            dispatch(clearHistory(arr));
+        clearHistory: (currentUser) => {
+            dispatch(clearHistory(currentUser));
         },
-        addHistory: (arr) => {
-            dispatch(addHistory(arr));
+        addHistory: (currentUser) => {
+            dispatch(addHistory(currentUser));
         }
     };
 };

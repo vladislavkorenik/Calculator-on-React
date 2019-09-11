@@ -1,6 +1,6 @@
 const initialState = {
     users: JSON.parse(localStorage.getItem('users')) === null ? [] : JSON.parse(localStorage.getItem('users')),
-    currenId: localStorage.getItem('currentUser') === null ? '' : localStorage.getItem('currentUser')
+    currentId: localStorage.getItem('currentId') === null ? '' : localStorage.getItem('currentId')
 }
 
 export default initialState;

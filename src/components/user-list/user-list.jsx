@@ -11,52 +11,22 @@ import './user-list.css';
 
 class UserList extends Component {
     state = {
-        newUsers: this.props.users === null ? [] : this.props.users,
         id: ''
     };
 
-    deleteUser = (item) => {
-        let arr = this.props.users.filter( el => el.id !== item );
-
-        this.props.delete(arr);
-
+    editUser = (userId) => {
         this.setState({
-            newUsers: arr,
-        });
-    };
-
-    editUser = (item) => {
-        this.setState({
-            id: item
+            id: userId
         }); 
-    }
-
-    acceptUser = () => {
-        let arr = this.props.users.map( el => {
-            if(el.id === this.state.id) {
-                el.user = localStorage.getItem('enterValue');
-                el.id = `${localStorage.getItem('enterValue') + this.props.users.length}`
-            }
-
-            return el;
-        } );
-
-        this.props.edit(arr);
-
-        this.setState({
-            newUsers: arr
-        }); 
-
-        localStorage.removeItem('enterValue');
     }
 
     render(){
-        const arr = this.state.newUsers.map( item => 
+        const arr = this.props.users.map( item => 
             <li key={ item.id }>
                 { this.state.id === item.id ? <InputPlace/> : <Link to = '/calculator' onClick = { () => this.props.chooseUser(item.id) }>{ item.user }</Link> }
                 <div>
-                    <Button props = { { value: this.state.id === item.id ? 'Применить' : 'Изменить', classes: 'user-list-button', func: this.state.id === item.id ? this.acceptUser : this.editUser , item: item.id } }/>
-                    <Button props = { { value: 'Удалить', classes: 'user-list-button', func: this.deleteUser, item: item.id } }/>
+                    <Button props = { { value: this.state.id === item.id ? 'Применить' : 'Изменить', classes: 'user-list-button', func: this.state.id === item.id ? this.props.acceptUser : this.editUser , item: item.id } }/>
+                    <Button props = { { value: 'Удалить', classes: 'user-list-button', func: this.props.deleteUser, item: item.id } }/>
                 </div>
             </li>);
         return(
@@ -78,10 +48,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        delete: (arr) => {
-            dispatch(deleteUser(arr));
+        deleteUser: (id) => {
+            dispatch(deleteUser(id));
         },
-        edit: (arr) => {
+        acceptUser: (arr) => {
             dispatch(editUser(arr));
         },
         chooseUser: (value) => {

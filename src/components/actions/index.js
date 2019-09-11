@@ -1,8 +1,7 @@
-export const addNewUsers = (arr) => {
-    localStorage.setItem('users',JSON.stringify(arr));
+export const addNewUsers = (username) => {
     return {
         type: "ADD_NEW_USER",
-        users: [...arr] 
+        username
     }
 }
 
@@ -14,58 +13,50 @@ export const deleteAllUsers = () => {
     }
 }
 
-export const chooseUser = (currenId) => {
-    localStorage.setItem('currentUser',currenId);
+export const chooseUser = (currentId) => {
     return {
         type: "CHOOSE_USER",
-        currenId
+        currentId
     }
 }
 
-export const editUser = (arr) => {
-    localStorage.setItem('users',JSON.stringify(arr));
+export const editUser = (userId) => {
     return {
         type: "EDIT_USER",
-        users: [...arr] 
+        userId
     }
 }
 
-export const deleteUser = (arr) => {
-    localStorage.setItem('users',JSON.stringify(arr));
+export const deleteUser = (userId) => {
     return {
         type: "DELETE_USER",
-        users: [...arr] 
+        userId
     }
 }
 
-export const addHistory = (arr) => {
-    localStorage.setItem('users',JSON.stringify(arr));
+export const addHistory = (currentUser) => {
     return {
         type: "ADD_HISTORY",
-        users: [...arr] 
+        currentUser 
     }
 }
 
-export const clearHistory = (arr) => {
-    localStorage.setItem('users',JSON.stringify(arr));
+export const clearHistory = (currentUser) => {
     return {
         type: "ADD_HISTORY",
-        users: [...arr] 
+        currentUser
     }
 }
 
-export const deleteButtons = (arr) => {
-    localStorage.setItem('users',JSON.stringify(arr));
+export const deleteButtons = () => {
     return {
-        type: "DELETE_BUTTONS",
-        users: [...arr] 
+        type: "DELETE_BUTTONS"
     }
 }
 
-export const addNewButton = (arr) => {
-    localStorage.setItem('users',JSON.stringify(arr));
+export const addNewButton = (number) => {
     return {
         type: "ADD_NEW_BUTTON",
-        users: [...arr] 
+        number
     }
 }
