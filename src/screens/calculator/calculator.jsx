@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
-import Button from '../button';
-import Buttons from '../buttons';
-import Screen from '../screen';
-import History from '../history';
-import CalculatorHeader from '../calculator-header';
-import HistoryListItem from '../history-list-item';
-import { addHistory, clearHistory } from '../actions';
+import Button from '../../components/button';
+import Buttons from '../../components/buttons';
+import Screen from '../../components/screen';
+import History from '../../components/history';
+import CalculatorHeader from '../../components/calculator-header';
+import HistoryListItem from '../../components/history-list-item';
+import { addHistory, clearHistory } from '../../actions';
 import './calculator.css';
 import isNumeric from "../../logic/isNumeric";
 

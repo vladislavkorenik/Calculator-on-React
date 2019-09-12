@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import isName from "../../logic/isName";
 import './input-place.css';
@@ -6,7 +6,7 @@ import './input-place.css';
 const enterValue = (event) => {
     if(isName(event.target.value)){
         localStorage.setItem('enterValue', event.target.value)
-    }
+    };
 };
 
 const InputPlace = () => {
@@ -21,4 +21,4 @@ const InputPlace = () => {
     );
 };
 
-export default InputPlace
+export default InputPlace;

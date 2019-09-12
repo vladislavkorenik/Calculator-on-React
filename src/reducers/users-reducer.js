@@ -1,6 +1,6 @@
-import initialState from './initial-state';
-import isName from "../../logic/isName";
-import isNumeric from "../../logic/isNumeric";
+import initialState from "./initial-state";
+import isName from "../logic/isName";
+import isNumeric from "../logic/isNumeric";
  
  
 export default function usersReducer (state = initialState, action) {  
@@ -43,8 +43,8 @@ export default function usersReducer (state = initialState, action) {
         case "EDIT_USER": {
             arr = arr.map( el => {
                 if(el.id === action.userId) {
-                    el.user = localStorage.getItem('enterValue');
-                    el.id = `${localStorage.getItem('enterValue') + arr.length}`
+                    el.user = localStorage.getItem('enterValue') === null ? el.user : localStorage.getItem('enterValue');
+                    el.id = `${localStorage.getItem('enterValue') + Math.random()}`
                 }
     
                 return el;
@@ -74,7 +74,7 @@ export default function usersReducer (state = initialState, action) {
                 arr[arr.findIndex( el => el.id === state.currentId)] = currentUser;
             }else {
                 alert('В следующий раз введите цифру')
-            }ж
+            };
             localStorage.setItem('users',JSON.stringify(arr));
             return {
                 ...state,

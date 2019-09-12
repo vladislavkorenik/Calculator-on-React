@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
-import Button from '../button';
+import Button from '../../components/button';
 import './add-button.css';
-import { addNewButton, deleteButtons } from '../actions';
+import { addNewButton, deleteButtons } from '../../actions';
 
 
 class AddButton extends Component {

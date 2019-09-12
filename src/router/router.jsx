@@ -1,15 +1,15 @@
-import React from 'react' 
+import React from 'react'; 
 
 import {
     BrowserRouter,
     Route,
     Switch
-} from 'react-router-dom'
+} from 'react-router-dom';
 
-import Calculator from '../calculator';
-import AddButton from '../add-button';
-import UserList from '../user-list';
-import CreateUser from '../create-user';
+import Calculator from '../screens/calculator';
+import AddButton from '../screens/add-button';
+import UserList from '../screens/user-list';
+import CreateUser from '../screens/create-user';
 
 
 const Router = () => {

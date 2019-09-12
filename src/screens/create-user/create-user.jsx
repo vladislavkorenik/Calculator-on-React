@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
-import Button from '../button';
-import { addNewUsers, deleteAllUsers } from '../actions';
+import Button from '../../components/button';
+import { addNewUsers, deleteAllUsers } from '../../actions';
 
 
 class CreateUser extends Component {
     state = {
         user: ''
-    }
+    };
 
     enterValue = (event) => {
         this.setState({

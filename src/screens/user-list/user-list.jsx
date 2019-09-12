@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
-import Button from '../button';
-import InputPlace from '../input-place';
-import { editUser, deleteUser, chooseUser } from '../actions';
+import Button from '../../components/button';
+import InputPlace from '../../components/input-place';
+import { editUser, deleteUser, chooseUser } from '../../actions';
 import './user-list.css';
 
 
@@ -18,7 +18,7 @@ class UserList extends Component {
         this.setState({
             id: userId
         }); 
-    }
+    };
 
     render(){
         const arr = this.props.users.map( item => 

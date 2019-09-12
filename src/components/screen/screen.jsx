@@ -1,5 +1,5 @@
 import React from 'react';
-import './screen.css'
+import './screen.css';
 
 
 const Screen = ({ result }) => {

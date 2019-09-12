@@ -1,7 +1,7 @@
 import React from 'react';
-import './history-list.css'
+import './history-list.css';
 
-import Button from '../button'
+import Button from '../button';
 
 
 const HistoryList = ({ visibility, clearAll, list }) => {
@@ -9,7 +9,7 @@ const HistoryList = ({ visibility, clearAll, list }) => {
 
     if(visibility) {
         className = 'history-list';
-    }
+    };
 
     return (
         <div className = {className}>
@@ -21,8 +21,8 @@ const HistoryList = ({ visibility, clearAll, list }) => {
             </div>    
         </div>   
     );
-}
+};
 
-export default HistoryList
+export default HistoryList;
 
 
