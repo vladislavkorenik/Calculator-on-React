@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import Button from '../button'
+import Button from '../button';
 
 
 const Buttons = ({ add, clear, backspace, equal, radical, currentId, users }) => {
@@ -121,11 +121,11 @@ const Buttons = ({ add, clear, backspace, equal, radical, currentId, users }) =>
         },
     ];
 
-    let buttons =  config.map( item => <Button key={ item.value } props = { item } />);
+    let buttons =  config.map( item => <Button key = {`${ item.value + Math.random() }`} props = { item } />);
     let newButtons = currentUser.button;
     newButtons = newButtons.map( item => {
         item.func = add;
-        return <Button key={ item.value } props = { item } />
+        return <Button key = {`${ item.value + Math.random() }`} props = { item } />
     });
     return (
         <div className='buttons'>

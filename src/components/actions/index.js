@@ -6,7 +6,6 @@ export const addNewUsers = (username) => {
 }
 
 export const deleteAllUsers = () => {
-    localStorage.setItem('users',JSON.stringify([]));
     return {
         type: "DELETE_USERS",
         users: []

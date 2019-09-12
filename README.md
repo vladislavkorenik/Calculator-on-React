@@ -1,1 +1,1 @@
-Это приложение на реакте <a href='https://mycalculator228.herokuapp.com'>CALCULATOR</a>  
+Работающий код находится тут -> <a href='https://mycalculator228.herokuapp.com'>CALCULATOR</a>  

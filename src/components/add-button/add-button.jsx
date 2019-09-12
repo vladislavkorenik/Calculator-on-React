@@ -1,17 +1,17 @@
-import React, { Component } from 'react' 
+import React, { Component } from 'react'; 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
-import Button from '../button'
-import './add-button.css'
+import Button from '../button';
+import './add-button.css';
 import { addNewButton, deleteButtons } from '../actions';
 
 
 class AddButton extends Component {
     state = {
         number: ''
-    }
+    };
 
     enterValue = ( event) => {
         this.setState({
