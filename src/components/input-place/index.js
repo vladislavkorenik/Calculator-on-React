@@ -1,3 +1,3 @@
-import InputPlace from './input-place'
+import InputPlace from "./input-place";
 
 export default InputPlace;

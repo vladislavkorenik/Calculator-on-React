@@ -1,3 +1,3 @@
-import AddButton from './add-button'
+import AddButton from "./add-button";
 
 export default AddButton;

@@ -1,49 +1,49 @@
 .add-button input,
 .create-user input {
-    width: 290px;
-    height: 30px;
-    padding-left: 10px; 
-    outline-color: gray;
-    margin-bottom: 10px;
+  width: 290px;
+  height: 30px;
+  padding-left: 10px;
+  outline-color: gray;
+  margin-bottom: 10px;
 }
 .add-button input:hover,
 .create-user input:hover {
-    border: 2px solid gray;
-    transition: border 0.1s;
+  border: 2px solid gray;
+  transition: border 0.1s;
 }
 
 .add-button-nav {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .add-button button,
 .create-user button {
-    background: grey;
-    border: 1px solid lightgray; 
-    width: 150px;
-    padding: 8px;
-    color: white;
-    outline-color: lightgrey;
+  background: grey;
+  border: 1px solid lightgray;
+  width: 150px;
+  padding: 8px;
+  color: white;
+  outline-color: lightgrey;
 }
 .add-button button:hover,
 .create-user button:hover {
-    background: lightgray;
-    transition: background 0.5s;
-    cursor: pointer;
+  background: lightgray;
+  transition: background 0.5s;
+  cursor: pointer;
 }
 
 .delete-buttons {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .delete-buttons button {
-    margin-top: 20px;
-    background: #dd2247;
-    width: 200px;
+  margin-top: 20px;
+  background: #dd2247;
+  width: 200px;
 }
 
 .delete-buttons button:hover {
-    background: lightcoral;
-    transition: background 0.5s;
+  background: lightcoral;
+  transition: background 0.5s;
 }

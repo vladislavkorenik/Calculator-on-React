@@ -1,3 +1,3 @@
-import HistoryList from './history-list'
+import HistoryList from "./history-list";
 
 export default HistoryList;

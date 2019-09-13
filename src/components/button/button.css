@@ -1,50 +1,50 @@
 button {
-    outline: none;
-    border: none;
-    background: none;
-    cursor: pointer;
-    padding: 0px 6px;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0px 6px;
 }
 .buttons button {
-    width: calc(25% - 2px);
-    font-size: 18px;
-    height: 60px;
-    background: #383838;
-    padding: 5px;
-    margin: 1px;
-    color: white;
+  width: calc(25% - 2px);
+  font-size: 18px;
+  height: 60px;
+  background: #383838;
+  padding: 5px;
+  margin: 1px;
+  color: white;
 }
 .buttons button:hover {
-    background: #606060;
+  background: #606060;
 }
 .buttons .number {
-    background: #1e1e1e;
+  background: #1e1e1e;
 }
 
 .common-button {
-    color: white;
-    margin: 10px 5px;
-    font-size: 17px;
+  color: white;
+  margin: 10px 5px;
+  font-size: 17px;
 }
 .common-button:hover {
-    font-size: 20px;
-    transition: font-size 0.2s;
+  font-size: 20px;
+  transition: font-size 0.2s;
 }
 
 .button-container {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.link-button a{
-    color: white;
-    text-decoration: none;
+.link-button a {
+  color: white;
+  text-decoration: none;
 }
 
 .buttons .add-button:hover a {
-    color: black;
+  color: black;
 }
 
 .user-list-button:hover {
-    color: lightgray;
+  color: lightgray;
 }
