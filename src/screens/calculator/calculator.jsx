@@ -13,6 +13,17 @@ import "./calculator.css";
 import isNumeric from "../../logic/isNumeric";
 
 class App extends Component {
+  currentUser = this.props.users[
+      this.props.users.findIndex(el => el.id === this.props.currentId)
+      ];
+
+  state = {
+    result: "0",
+    list: this.currentUser.history.map(item => (
+        <HistoryListItem key={`${item.value + Math.random()}`} props={item} />
+    ))
+  };
+
   operations = {
     "+": 1,
     "-": 1,
@@ -21,10 +32,6 @@ class App extends Component {
     "%": 1,
     ".": 1
   };
-
-  currentUser = this.props.users[
-    this.props.users.findIndex(el => el.id === this.props.currentId)
-  ];
 
   isNaNorInfinity = () => {
     return this.state.result === "На ноль делить нельзя"
@@ -39,13 +46,6 @@ class App extends Component {
       this.operations
       ? true
       : false;
-  };
-
-  state = {
-    result: "0",
-    list: this.currentUser.history.map(item => (
-      <HistoryListItem key={`${item.value + Math.random()}`} props={item} />
-    ))
   };
 
   clear = () => {
@@ -86,10 +86,11 @@ class App extends Component {
   };
 
   writeHistory = radical => {
-    if (!this.havesign() && isNumeric(Math.sqrt(eval(this.state.result)))) {
+    if (!this.havesign() && isNumeric(eval(this.state.result))) {
       this.currentUser.history.push({
         value: radical
-          ? `sqrt(${this.state.result}) = ${Math.sqrt(eval(this.state.result))}`
+          ? `sqrt(${this.state.result}) = ${isNaN(Math.sqrt(eval(this.state.result)))  ? "Результат не определен" :
+                Math.sqrt(eval(this.state.result))} `
           : `${this.state.result} = ${eval(this.state.result)}`
       });
       this.props.addHistory(this.currentUser);

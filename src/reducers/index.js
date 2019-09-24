@@ -1,3 +1,3 @@
-import usersReducer from "./users-reducer";
+import usersReducer from './users-reducer';
 
 export default usersReducer;

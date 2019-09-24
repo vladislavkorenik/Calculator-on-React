@@ -14,7 +14,10 @@ const Buttons = ({
   users
 }) => {
   let currentUser = users[users.findIndex(el => el.id === currentId)];
-
+  const addButton = {
+    value: "Добавить",
+    classes: "add-button link-button"
+  };
   const config = [
     {
       value: "C",
@@ -121,10 +124,6 @@ const Buttons = ({
     {
       value: "=",
       func: equal
-    },
-    {
-      value: <Link to="/add-button-page">Добавить</Link>,
-      classes: "add-button link-button"
     }
   ];
 
@@ -139,6 +138,9 @@ const Buttons = ({
   return (
     <div className="buttons">
       {buttons}
+      <Link to="/add-button-page">
+        <Button key={`${addButton.value + Math.random()}`} props={addButton} />
+      </Link>
       {newButtons}
     </div>
   );

@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import Button from "../../components/button";
 import "./add-button.css";
 import { addNewButton, deleteButtons } from "../../actions";
+import isNumeric from "../../logic/isNumeric";
 
 class AddButton extends Component {
   state = {
-    number: ""
+    number: "",
+    redirect: false
   };
 
   enterValue = event => {
@@ -17,21 +20,32 @@ class AddButton extends Component {
     });
   };
 
+  onSubmit = event => {
+    event.preventDefault();
+    if (!isNumeric(this.state.number)) {
+      alert("В следующий раз введите цифру");
+    } else {
+      this.setState({ redirect: true });
+    }
+  };
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/calculator" />;
+    }
     return (
-      <form className="add-button">
+      <form onSubmit={this.onSubmit} className="add-button">
         <input placeholder="Введите число" onChange={this.enterValue} />
         <div className="add-button-nav">
-          <Link to="/calculator">
-            <Button
-              props={{
-                value: "Добавить",
-                classes: "link-button",
-                func: this.props.addNewButton,
-                item: this.state.number
-              }}
-            />
-          </Link>
+          <Button
+            props={{
+              value: "Добавить",
+              classes: "link-button",
+              func: this.props.addNewButton,
+              item: this.state.number,
+              buttonType: "submit"
+            }}
+          />
           <Link to="/calculator">
             <Button props={{ value: "Назад", classes: "link-button" }} />
           </Link>

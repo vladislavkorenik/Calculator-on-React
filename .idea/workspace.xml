@@ -1,7 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="50e64973-d6e5-48bd-89a0-0f245169a6e5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/button/button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/button.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/button/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/buttons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/buttons.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/buttons/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/calculator-header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/calculator-header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/history-list-item/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/history-list-item/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/history-list/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/history-list/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/history/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/history/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/input-place/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input-place/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/screen/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/screen/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/isName.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/isName.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/isNumeric.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/isNumeric.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/initial-state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/initial-state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/users-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/users-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/add-button/add-button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/add-button/add-button.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/add-button/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/add-button/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/calculator/calculator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/calculator/calculator.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/calculator/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/calculator/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/create-user/create-user.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/create-user/create-user.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/create-user/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/create-user/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/user-list/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/user-list/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/create-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/create-store.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1R5paOPhzmuXupDGFbKYMj5klPJ" />
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="$USER_HOME$/AppData/Roaming/npm/node_modules/eslint" />
+    <property name="node.js.selected.package.standard" value="C:\Users\vlady\AppData\Roaming\npm\node_modules\eslint" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="D:\Calculator-on-React\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="50e64973-d6e5-48bd-89a0-0f245169a6e5" name="Default Changelist" comment="" />
+      <created>1568842997517</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568842997517</updated>
+      <workItem from="1568842998647" duration="920000" />
+      <workItem from="1568879159875" duration="89000" />
+      <workItem from="1568902460579" duration="494000" />
+      <workItem from="1568903101632" duration="18000" />
+      <workItem from="1568925942294" duration="2070000" />
+      <workItem from="1568928047137" duration="332000" />
+      <workItem from="1568966879721" duration="89000" />
+      <workItem from="1569309593200" duration="4709000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import Button from "../../components/button";
 import { addNewUsers, deleteAllUsers } from "../../actions";
+import isName from "../../logic/isName";
 
 class CreateUser extends Component {
   state = {
-    user: ""
+    user: "",
+    redirect: false
   };
 
   enterValue = event => {
@@ -16,21 +19,32 @@ class CreateUser extends Component {
     });
   };
 
+  onSubmit = event => {
+    event.preventDefault();
+    if (!isName(this.state.user)) {
+      alert("Неправильно введено имя или фамилия");
+    } else {
+      this.setState({ redirect: true });
+    }
+  };
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
     return (
-      <form className="create-user">
+      <form onSubmit={this.onSubmit} className="create-user">
         <input placeholder="Введите имя и фамилию" onChange={this.enterValue} />
         <div className="add-button-nav">
-          <Link to="/">
-            <Button
-              props={{
-                value: "Добавить",
-                classes: "link-button",
-                func: this.props.addNewUser,
-                item: this.state.user
-              }}
-            />
-          </Link>
+          <Button
+            props={{
+              value: "Добавить",
+              classes: "link-button",
+              func: this.props.addNewUser,
+              item: this.state.user,
+              buttonType: "submit"
+            }}
+          />
           <Link to="/">
             <Button props={{ value: "Назад", classes: "link-button" }} />
           </Link>

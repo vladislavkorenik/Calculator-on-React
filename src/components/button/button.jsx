@@ -5,9 +5,11 @@ const emptyFunc = () => {
   return 0;
 };
 
-const Button = ({ props: { value, func = emptyFunc, item, classes } }) => {
+const Button = ({
+  props: { value, func = emptyFunc, item, classes, buttonType = "button" }
+}) => {
   return (
-    <button type="button" className={classes} onClick={() => func(item)}>
+    <button type={buttonType} className={classes} onClick={() => func(item)}>
       {value}
     </button>
   );
