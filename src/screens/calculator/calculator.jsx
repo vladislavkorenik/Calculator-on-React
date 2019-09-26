@@ -12,7 +12,7 @@ import { addHistory, clearHistory } from "../../actions";
 import "./calculator.css";
 import isNumeric from "../../logic/isNumeric";
 
-class App extends Component {
+class Calculator extends Component {
   currentUser = this.props.users[
       this.props.users.findIndex(el => el.id === this.props.currentId)
       ];
@@ -185,4 +185,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(Calculator);
